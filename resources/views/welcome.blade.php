@@ -27,7 +27,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-iteams-center">
                             <h3 class="mb-0">All Task</h3>
-                            <a href="#" class="btn btn-primary">Create Task</a>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createTask">Create Task</a>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
@@ -35,14 +35,17 @@
                                     <tr>
                                         <th> ID </th>
                                         <th> Task Name </th>
-                                        <th> Action </th>
+                                        <th style="width: 250px;"> Action </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td> 1 </td>
+                                        <td> Go to College </td>
+                                        <td style="width: 250px;">
+                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -52,6 +55,41 @@
             </div>
         </div>
     </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="createTask"  role="dialog" tabindex="-1" aria-labelledby="createTaskTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <form action="" id="createTaskForm">
+        <div class="modal-header">
+        <h5 class="modal-title" id="createTaskTitle">Create Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="">Enter Task Name</label><br>
+                <input type="text" class="form-control" name="name" placeholder="Enter Task Name">
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Create Task</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
