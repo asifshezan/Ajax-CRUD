@@ -38,7 +38,7 @@
                                         <th style="width: 250px;"> Action </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="taskTableBody">
                                     @foreach ($tasks as $task)
                                     <tr>
                                         <td> {{ $task->id }} </td>
