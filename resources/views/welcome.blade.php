@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
@@ -39,14 +39,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($tasks as $task)
                                     <tr>
-                                        <td> 1 </td>
-                                        <td> Go to College </td>
+                                        <td> {{ $task->id }} </td>
+                                        <td> {{ $task->name }} </td>
                                         <td style="width: 250px;">
                                             <a href="#" class="btn btn-sm btn-primary">Edit</a>
                                             <a href="#" class="btn btn-sm btn-danger">Delete</a>
                                         </td>
                                     </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
@@ -69,6 +72,7 @@
         </button>
         </div>
         <div class="modal-body">
+            <div id="createTaskMessage"></div>
             <div class="form-group">
                 <label for="">Enter Task Name</label><br>
                 <input type="text" class="form-control" name="name" placeholder="Enter Task Name">
@@ -84,15 +88,9 @@
 </div>
 
 
-
-
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('js')}}/main.js"></script>
 
 
 </body>

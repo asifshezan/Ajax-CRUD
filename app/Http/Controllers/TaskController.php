@@ -14,7 +14,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $tasks = Task::orderBy('id','ASC')->latest()->get();
+        return view('welcome', compact('tasks'));
     }
 
     /**
@@ -35,7 +36,11 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = Task::create([
+            'name' => $request->name,
+        ]);
+
+        return response()->json($task, 200);
     }
 
     /**
