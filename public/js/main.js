@@ -21,9 +21,13 @@ $('#createTaskForm').submit(function(e){
         data : formData,
         success: function(data){
 
+            $(msg).html('');
+
             $(msg).append('<div class="alert alert-success"> Task Created Successfully</div>');
 
             $(input).val('');
+
+            $('#taskTableBody').append('<tr> <td>'+ data.id +'</td> <td>'+ data.name +'</td> <td style="width: 250px;"><a href="#" class="btn btn-sm btn-primary">Edit</a> <a href="#" class="btn btn-sm btn-danger">Delete</a></td></tr>')
 
         },
         error: function(error){
