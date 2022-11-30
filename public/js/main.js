@@ -5,6 +5,7 @@ $.ajaxSetup({
 });
 
 
+//  Create Task
 $('#createTaskForm').submit(function(e){
     e.preventDefault();
 
@@ -42,3 +43,28 @@ $('#createTaskForm').submit(function(e){
         }
     })
 });
+
+// End  Create Task
+
+
+//  edit Task
+
+$(document).on('click', '.edit', function(){
+
+    let task = $(this).closest('tr').data('id');
+
+    $.ajax({
+        type: 'GET',
+        url: 'task/update/'+task,
+        success: function(data){
+            console.log(data);
+        },
+        error: function(data){
+            console.log(data);
+        }
+    })
+});
+
+
+
+//  End Edit Task

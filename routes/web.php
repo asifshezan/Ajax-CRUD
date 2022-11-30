@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TaskController::class, 'index'])->name('task.index');
 Route::post('/task/store', [TaskController::class, 'store']);
+Route::get('/task/edit/{id}', [TaskController::class, 'edit']);
 Route::put('/task/update/{id}', [TaskController::class, 'update'])->name('task.update');
 Route::post('/task/delete/{id}', [TaskController::class, 'destroy'])->name('task.destroy');
 
