@@ -103,7 +103,7 @@
             <div id="editTaskMessage"></div>
             <div class="form-group">
                 <label for="">Enter Task Name</label><br>
-                <input type="text" class="form-control" name="name" placeholder="Enter Task Name">
+                <input type="text" class="form-control" id="editInput" name="name" placeholder="Enter Task Name">
             </div>
         </div>
         <div class="modal-footer">
