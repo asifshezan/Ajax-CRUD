@@ -108,5 +108,4 @@ $('#editTaskForm').submit(function(e){
 });
 
 
-
 // Update Task

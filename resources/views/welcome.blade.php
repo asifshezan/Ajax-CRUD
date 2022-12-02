@@ -45,11 +45,10 @@
                                         <td class="task-name"> {{ $task->name }} </td>
                                         <td style="width: 250px;">
                                             <a href="#"  data-toggle="modal" data-target="#editTask" class="btn btn-sm btn-primary edit">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            <a href="#" data-toggle="modal" data-target="#deleteTask" class="btn btn-sm btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div>
@@ -115,6 +114,31 @@
     </div>
 </div>
 <!--End Create Modal -->
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteTask"  role="dialog" tabindex="-1" aria-labelledby="deleteTaskTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <form action="" id="deleteTaskForm">
+        <div class="modal-header">
+        <h5 class="modal-title" id="deleteTaskTitle">Delete Option</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body text-center">
+            <h4>Are you want to delete this!!?</h4>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>
+<!--End Delete Modal -->
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
