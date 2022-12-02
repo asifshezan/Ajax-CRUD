@@ -90,8 +90,9 @@ $('#editTaskForm').submit(function(e){
             $(msg).html('');
             $(msg).append('<div class="alert alert-success"> Task Updated Successfully.</div>')
             $(input).val('');
-            $('#taskTableBody').append('<tr> <td>'+ data.id +'</td> <td>'+ data.name +'</td> <td style="width: 250px;"><a href="#" class="btn btn-sm btn-primary">Edit</a> <a href="#" class="btn btn-sm btn-danger">Delete</a></td></tr>')
 
+            let taskRow = $('#taskTableBody').find('tr[data-id="'+id+'"]');
+                $(taskRow).find('td.task-name').text(data.name);
         },
 
         error: function(error){

@@ -42,7 +42,7 @@
                                     @foreach ($tasks as $task)
                                     <tr data-id="{{ $task->id }}">
                                         <td> {{ $task->id }} </td>
-                                        <td> {{ $task->name }} </td>
+                                        <td class="task-name"> {{ $task->name }} </td>
                                         <td style="width: 250px;">
                                             <a href="#"  data-toggle="modal" data-target="#editTask" class="btn btn-sm btn-primary edit">Edit</a>
                                             <a href="#" class="btn btn-sm btn-danger">Delete</a>
