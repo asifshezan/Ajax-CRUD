@@ -45,7 +45,7 @@
                                         <td class="task-name"> {{ $task->name }} </td>
                                         <td style="width: 250px;">
                                             <a href="#"  data-toggle="modal" data-target="#editTask" class="btn btn-sm btn-primary edit">Edit</a>
-                                            <a href="#" data-toggle="modal" data-target="#deleteTask" class="btn btn-sm btn-danger">Delete</a>
+                                            <a href="#" data-toggle="modal" data-target="#deleteTask" class="btn btn-sm btn-danger delete">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -128,6 +128,7 @@
         </button>
         </div>
         <div class="modal-body text-center">
+            <div id="deleteTaskMessage"></div>
             <h4>Are you want to delete this!!?</h4>
         </div>
         <div class="modal-footer">

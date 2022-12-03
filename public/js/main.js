@@ -47,7 +47,7 @@ $('#createTaskForm').submit(function(e){
 // End  Create Task
 
 
-//  edit Task
+//  Edit Task
 
 $(document).on('click', '.edit', function(){
 
@@ -107,5 +107,48 @@ $('#editTaskForm').submit(function(e){
     })
 });
 
+// Update Task end
 
-// Update Task
+
+// Delete Task Popup Start
+
+$(document).on('click', '.delete', function(){
+
+    let task = $(this).closest('tr').data('id');
+    let modal = $('#deleteTaskForm');
+    $(modal).attr('data-id', task);
+
+
+});
+
+// Delete Task Popup End
+
+
+// Delete Task Confirmation Start
+
+
+$('#deleteTaskForm').submit(function(e){
+    e.preventDefault();
+
+    let msg = $('#deleteTaskMessage');
+    let id = $('#deleteTaskForm').data('id');
+
+    $.ajax({
+        type: 'POST',
+        url: '/task/delete/'+id,
+        success: function(data){
+            $(msg).html('');
+            $('#deleteTaskForm').find('h4').remove();
+            $('#deleteTaskForm').find('button[type="submit"]').remove();
+
+            $(msg).append('<div class="alert alert-success">Task Deleted Successfully.</div>')
+        },
+        error: function(data){
+
+        }
+    })
+});
+
+
+
+// Delete Task Confirmation End
