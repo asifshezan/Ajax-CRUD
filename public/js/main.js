@@ -28,7 +28,7 @@ $('#createTaskForm').submit(function(e){
 
             $(input).val('');
 
-            $('#taskTableBody').append('<tr> <td>'+ data.id +'</td> <td>'+ data.name +'</td> <td style="width: 250px;"><a href="#" class="btn btn-sm btn-primary">Edit</a> <a href="#" class="btn btn-sm btn-danger">Delete</a></td></tr>')
+            $('#taskTableBody').append('<tr data-id="'+data.id+'"> <td>'+ data.id +'</td> <td>'+ data.name +'</td> <td style="width: 250px;"> <a href="#"  data-toggle="modal" data-target="#editTask" class="btn btn-sm btn-primary edit">Edit</a> <a href="#" data-toggle="modal" data-target="#deleteTask" class="btn btn-sm btn-danger delete">Delete</a></td></tr>');
 
         },
         error: function(error){
@@ -142,6 +142,10 @@ $('#deleteTaskForm').submit(function(e){
             $('#deleteTaskForm').find('button[type="submit"]').remove();
 
             $(msg).append('<div class="alert alert-success">Task Deleted Successfully.</div>')
+
+        let taskRow = $('#taskTableBody').find('tr[data-id="'+id+'"]');
+        $(taskRow).remove();
+
         },
         error: function(data){
 
@@ -149,6 +153,34 @@ $('#deleteTaskForm').submit(function(e){
     })
 });
 
-
-
 // Delete Task Confirmation End
+
+
+
+$('#deleteTaskForm').submit(function (e) {
+    e.preventDefault();
+});
+
+// create modal set to default
+$('#createTask').on('hidden.bs.modal', function (e) {
+    $('#createTaskForm').find('#createTaskMessage').html('');
+})
+
+// edit modal set to default
+$('#editTask').on('hidden.bs.modal', function (e) {
+    $('#editTaskForm').find('#editTaskMessage').html('');
+})
+
+// delete modal set to default
+$('#deleteTask').on('hidden.bs.modal', function (e) {
+    modal = $('#deleteTaskForm');
+    $(modal).find('#deleteTaskMessage').html('');
+    $(modal).find('.modal-body').html('').append(`
+        <div id="deleteTaskMessage"></div>
+        <h4>Are you you want to delete this?</h4>
+    `);
+    $(modal).find('.modal-footer').html('').append(`
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    `);
+})
